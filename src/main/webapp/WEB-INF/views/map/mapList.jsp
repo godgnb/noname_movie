@@ -12,16 +12,21 @@
 	<jsp:include page="../head.jsp"/>
 	
 	<div class="container">
+		<!--영화관 검색 폼-->
+		<div>
 		<form action="/address/search">
 			<input id="query" name="query" placeholder="장소">
-			<input type="submit" value="영화관 검색">
+			<input type="submit" value="검색">
 		</form>
-		
+		</div>
+			
+		<!--영화관 정보 리스트(카카오)-->
+		<div>
 		<table id = "table">
 		<c:forEach var="mapList" items="${mapList}">
 		<tr>
-				<td>${mapList.place_name}</td>
-				<td>${mapList.road_address_name}</td>
+				<td>${mapList.placeName}</td>
+				<td>${mapList.roadAddressName}</td>
 				<td>${mapList.phone}</td>
 				<td style="display:none;">${mapList.x}</td>
 				<td style="display:none;">${mapList.y}</td>
@@ -29,7 +34,8 @@
 		</tr>
 		</c:forEach>
 		</table>
-		
+		</div>
+			
 		<jsp:include page="map.jsp"/>
 	</div>
 </body>
